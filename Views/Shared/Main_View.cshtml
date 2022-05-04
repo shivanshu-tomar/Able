@@ -1,0 +1,407 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    @*<script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-90680653-2');
+        </script>*@
+    <!-- Required meta tags -->
+    <meta charset="utf-8" charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/Image/logo.ico" />
+    <meta name="author" content="BootstrapDash">
+    <title>@ViewBag.Title</title>
+    <!-- vendor css -->
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/typicons.font/typicons.css" rel="stylesheet">
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <!-- azia CSS -->
+
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/select2/css/select2.min.css" rel="stylesheet">
+
+
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/amazeui-datetimepicker/css/amazeui.datetimepicker.css" rel="stylesheet">
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/jquery-simple-datetimepicker/jquery.simple-dtpicker.css" rel="stylesheet">
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/pickerjs/picker.min.css" rel="stylesheet">
+
+
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/ion-rangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+
+
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/datatable-fixed/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/datatable-fixed/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet" />
+
+
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/css/azia.css" rel="stylesheet" />
+
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/jquery/jquery.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-sanitize.js"></script>
+
+    <script src="~/Scripts/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="~/MyScript/MyApp.js"></script>
+
+
+    <style>
+        .hide {
+            display: none !important;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="theam" ng-cloak>
+
+    @*<div style="background: linear-gradient(to right, #0178bc 0%, #00bdda 100%);line-height:35px;color:white">
+            <div class="container p-0">
+                <span> Contact: 17km Stone, NH-2,Mathura-Delhi Road, Mathura-281 406 (U.P.) INDIA</span>
+            </div>
+        </div>*@
+
+    <div class="az-header">
+        <div class="container">
+            <div class="az-header-left">
+                <a href="index.html" class="az-logo" style="text-transform:none !important">
+                    <img src="~/Content/Image/logo.png" />
+                </a>
+                <a href="#" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
+            </div><!-- az-header-left -->
+            <div class="az-header-menu">
+                <div class="az-header-menu-header">
+                    <a href="index.html" class="az-logo" style="text-transform:none !important"><span></span> GLAU</a>
+                    <a href="#" class="close">&times;</a>
+                </div><!-- az-header-menu-header -->
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="/taskManagement/index" class="nav-link"><i class="typcn typcn-group"></i> Task Manager</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="/dashboard/dashboard" class="nav-link @*with-sub*@"><i class="typcn typcn-folder"></i>Dashboard</a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link "><i class="typcn typcn-tabs-outline"></i>New Task</a>
+                    </li>
+                </ul>
+            </div><!-- az-header-menu -->
+            <div class="az-header-right">
+                @*<a href="#" class="az-header-search-link"><i class="fas fa-search"></i></a>*@
+                <div class="az-header-message">
+                    <a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
+                </div><!-- az-header-message -->
+                <div class="dropdown az-header-notification">
+                    <a href="#" ng-class="notifications.length>0?'new':''"><i class="typcn typcn-bell"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="az-dropdown-header mg-b-20 d-sm-none">
+                            <a href="#" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
+                        </div>
+                        <h6 class="az-notification-title">Notifications</h6>
+                        <p class="az-notification-text">You have {{notifications.length}} unread notification</p>
+                        <div class="az-notification-list">
+                            <div class="media new" ng-repeat="n in notifications">
+                                @*<div class="az-img-user"><img src="../img/faces/face2.jpg" alt=""></div>*@
+                                <div class="media-body">
+                                    {{n.Value}}
+                                    <span><a href="#" ng-click="markNotificationReaded(n.Key)">Mark Read</a></span>
+                                </div><!-- media-body -->
+                            </div><!-- media -->
+
+                        </div><!-- az-notification-list -->
+                        <div class="dropdown-footer"><a href="#">View All Notifications</a></div>
+                    </div><!-- dropdown-menu -->
+                </div><!-- az-header-notification -->
+                <div class="dropdown az-profile-menu">
+                    <a href="#" class="az-img-user"><img src="@Session["ImageUrl"]" alt=""></a>
+                    <div class="dropdown-menu">
+                        <div class="az-dropdown-header">
+                            <a href="#" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
+                            <div class="az-header-profile">
+                                <div class="az-img-user">
+                                    <img src="@Session["ImageUrl"]" alt="">
+                                </div><!-- az-img-user -->
+                                <h6>@Session["User_Name"]</h6>
+                                <span>@Session["User_Desg"]</span>
+                            </div><!-- az-header-profile -->
+                            <a href="#" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
+                            <a href="#" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
+                            <a href="#" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
+                            <a href="#" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>
+                            <a ng-click="logout()" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Log out</a>
+                        </div><!-- dropdown-menu -->
+                    </div>
+                </div><!-- az-header-right -->
+            </div><!-- container -->
+        </div><!-- az-header -->
+    </div>
+    <div class="az-content az-content-profile">
+
+        @RenderBody()
+
+        <!-- container -->
+    </div><!-- az-content -->
+    <div class="az-footer pd-b-10">
+        <div class="container">
+            <span style="color:white">&copy; 2021 GLA University,Mathura</span>
+        </div><!-- container -->
+    </div><!-- az-footer -->
+    <!-- MODAL ALERT MESSAGE -->
+    <div id="MyAlertModal" class="modal effect-super-scaled" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i id="MyAlertModal_Icon" class="icon ion-ios-checkmark-circle-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 id="MyAlertModal_Heading" class="tx-success tx-semibold mg-b-20">Congratulations!</h4>
+                    <p id="MyAlertModal_Message" class="mg-b-20 mg-x-20">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+                    <button id="MyAlertModal_Button" type="button" class="btn btn-success pd-x-25" data-dismiss="modal" aria-label="Close">Continue</button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    @*<script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/jquery/jquery.min.js"></script>*@
+
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/ionicons/ionicons.js"></script>
+
+    @*<script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/jquery.flot/jquery.flot.js"></script>
+        <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/jquery.flot/jquery.flot.resize.js"></script>
+        <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/chart.js/Chart.bundle.min.js"></script>*@
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/peity/jquery.peity.min.js"></script>
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/js/azia.js"></script>
+    @*<script src="~/bootstrapdash.com/demo/azia/v1.0.0/js/chart.flot.sampledata.js"></script>
+        <script src="~/bootstrapdash.com/demo/azia/v1.0.0/js/dashboard.sampledata.js"></script>*@
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/select2/js/select2.min.js"></script>
+
+
+    <script src="~/MyScript/DemoSec.js"></script>
+
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/jquery-ui/ui/widgets/datepicker.js"></script>
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js"></script>
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/pickerjs/picker.min.js"></script>
+
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+
+    @*<script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+        <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>*@
+
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/datatable-fixed/js/jquery.dataTables.min.js"></script>
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/datatable-fixed/js/dataTables.fixedColumns.min.js"></script>
+
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/export/tableToExcel.js"></script>
+
+
+
+
+    @*<script>
+        
+        app.service('MainFiletr', function ()
+        {
+            this.SearchParam = { StudyMode: '', AdmitBatch: '', Session: '', Course: '', Semester: '', NameRoll: '' }
+
+        });
+        
+        app.controller("theam", function ($scope, myService) {
+            $scope.logout = () => {
+                myService.UserLogin({}, '/Login/LogoutFunction').then((d) => {
+                    window.location = d.data.toString().replace("Ok:", "");
+                })
+            }
+            $scope.getNotification = () => {
+                myService.UserLogin({}, '/TaskManagement/userNotification').then((d) => {
+                    if (d.data == 'session logout') {
+                        window.location = "/login/index";
+                        return;
+                    }
+
+                    $scope.notifications = d.data;
+                })
+            }
+            $scope.markNotificationReaded = (id) => {
+                myService.UserLogin({ id }, '/TaskManagement/markNotificationReaded').then((d) => {
+                    location.reload()
+                })
+            }
+
+            $scope.getNotification()
+        })
+        $(document).ready(function ()
+        {
+            $('.select2').select2({
+                searchInputPlaceholder: 'Search'
+            });
+
+            $('.select2-no-search').select2({
+                minimumResultsForSearch: Infinity,
+                placeholder: 'Search'
+            });
+
+            if (document.getElementById("StartDate") != null) {
+                const sDate = new Picker(document.querySelector('#StartDate'), {
+                    headers: true,
+                    format: 'DD.MM.YYYY',
+                    text: {
+                        title: 'Select Date',
+                        year: 'Year',
+                        month: 'Month',
+                        day: 'Day'
+                    },
+                });
+            }
+            if (document.getElementById("EndDate") != null) {
+                const eDate = new Picker(document.querySelector('#EndDate'), {
+                    headers: true,
+                    format: 'DD.MM.YYYY',
+                    text: {
+                        title: 'Select Date',
+                        year: 'Year',
+                        month: 'Month',
+                        day: 'Day'
+                    },
+                });
+            }
+
+
+            $('.az-nav-line .nav-link').on('click', function (e) {
+                e.preventDefault();
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                var target = $(this).attr('href');
+                $(target).addClass('active');
+                $(target).siblings().removeClass('active');
+            });
+
+            $('.dateClear').on('click', function (e) {
+                e.preventDefault();
+                $(this).parent().parent().siblings('.js-date-picker').val('');
+
+            });
+
+
+            $('.js-date-picker').on('change', function (e) {
+                if ($(this).hasClass('disableFuture') && $(this).val() != '') {
+                    if (isFutureDate(GetFormattedString($(this).val()))) {
+                        $(this).val('');
+                    }
+                }
+                if ($(this).hasClass('disablePast') && $(this).val() != '') {
+                    if (isPastDate(GetFormattedString($(this).val()))) {
+                        $(this).val('');
+                    }
+                }
+            });
+
+            $('.az-toggle').on('click', function () {
+                $(this).toggleClass('on');
+            })
+        });
+
+
+        function GetFormattedStringDB(inputDate) {
+            if (inputDate != '') {
+                var dateParts = inputDate.split(".");
+                var dateObject = dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0];
+                return dateObject;
+            }
+            return '';
+        }
+
+        function GetFormattedString(inputDate) {
+            if (inputDate != '') {
+                var dateParts = inputDate.split(".");
+                var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+                return dateObject;
+            }
+            return '';
+        }
+
+        function isFutureDate(idate){
+            var today = new Date().getTime(),
+            idate = idate.getTime();
+            return (today - idate) < 0 ? true : false;
+        }
+
+        function isPastDate(idate) {
+            var today = new Date().getTime(),
+            idate = idate.getTime();
+            return (today - idate) > 0 ? true : false;
+        }
+
+        function GetFormattedStringDot(theDate) {
+            var dd = String(theDate.getDate()).padStart(2, '0');
+            var mm = String(theDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = theDate.getFullYear();
+
+            var today = dd + '.' + mm + '.' + yyyy;
+            return today;
+        }
+
+        function getToday() {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = dd + '.' + mm + '.' + yyyy;
+            return today;
+        }
+
+        function addDays(theDate, days) {
+            var theDate = GetFormattedString(theDate);
+            if (theDate != '') {
+                var newDate = new Date(theDate.getTime() + days * 24 * 60 * 60 * 1000);
+                return GetFormattedStringDot(newDate);
+            }
+            return '';
+        }
+
+        function ShowMessageModal(Icon, Heading, Message, Button) {
+
+            if (Icon == 'Success') {
+                $("#MyAlertModal_Heading").html('Congratulations!');
+                $("#MyAlertModal_Button").attr('class', 'btn btn-success pd-x-25');
+                $("#MyAlertModal_Heading").attr('class', 'tx-success tx-semibold mg-b-20');
+                $("#MyAlertModal_Icon").attr('class', 'icon ion-ios-checkmark-circle-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block');
+            }
+            if (Icon == 'Error') {
+                $("#MyAlertModal_Heading").html('Error! Can`t Proceed');
+                $("#MyAlertModal_Button").attr('class', 'btn btn-danger pd-x-25');
+                $("#MyAlertModal_Heading").attr('class', 'tx-danger tx-semibold mg-b-20');
+                $("#MyAlertModal_Icon").attr('class', 'icon icon ion-ios-close-circle-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block');
+            }
+            if (Icon == 'Sorry') {
+                $("#MyAlertModal_Heading").html('Sorry! Can`t Proceed');
+                $("#MyAlertModal_Button").attr('class', 'btn btn-danger pd-x-25');
+                $("#MyAlertModal_Heading").attr('class', 'tx-danger tx-semibold mg-b-20');
+                $("#MyAlertModal_Icon").attr('class', 'icon icon ion-ios-close-circle-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block');
+            }
+            $("#MyAlertModal_Message").html(Message);
+            $("#MyAlertModal_Button").html(Button);
+            $('#MyAlertModal').modal('show');
+        }
+
+    </script>*@
+    <script src="~/MyScript/MyService.js"></script>
+
+</body>
+</html>

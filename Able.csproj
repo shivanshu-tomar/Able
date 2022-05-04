@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6A6EDAB2-4C19-4373-985A-6A5813ECF399}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Able</RootNamespace>
+    <AssemblyName>Able</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44385</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.19.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.Streams.1.2.6\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.29\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.29\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.29\lib\net452\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="MyClass\Export.cs" />
+    <Compile Include="MyClass\MyConnections.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrapdash.com\avtar.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\css\azia.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\avatar\avatar_10.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\avatar\avatar_12.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\avatar\avatar_13.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\avatar\avatar_14.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\avatar\avatar_15.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\avatar\avatar_7.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\back.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_1.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_10.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_11.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_12.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_2.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_3.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_4.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_5.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_6.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_7.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_8.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\carousel\banner_9.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\content_section\img_5.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\dash\dash_1.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\dash\dash_2.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\dash\dash_3.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\eight.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face1.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face10.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face11.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face12.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face13.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face14.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face15.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face16.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face17.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face18.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face19.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face2.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face20.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face21.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face22.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face3.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face4.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face5.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face6.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face7.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face8.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\faces\face9.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\five.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\four.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\mastercard.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\nine.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\one.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image1.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image10.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image11.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image12.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image2.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image3.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image4.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image5.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image6.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image7.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image8.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\product_images_2\thumb_image9.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\samples\300x300\1.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\samples\300x300\10.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\samples\300x300\2.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\samples\300x300\3.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\samples\300x300\5.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\samples\300x300\6.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\samples\300x300\8.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\samples\300x300\9.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\seven.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\six.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\ten.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\three.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\two.jpg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\img\visa.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\app-calendar-events.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\app-calendar.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\azia.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\chart.chartjs.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\chart.flot.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\chart.flot.sampledata.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\chart.morris.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\chart.peity.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\chart.sparkline.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\dashboard.sampledata.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\jquery.vmap.sampledata.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\map.apple.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\map.bluewater.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\map.mapbox.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\js\map.shiftworker.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\amazeui-datetimepicker\css\amazeui.datetimepicker.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\amazeui-datetimepicker\js\amazeui.datetimepicker.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\chart.js\Chart.bundle.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\cryptofont\css\cryptofont.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatable-fixed\css\fixedColumns.dataTables.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatable-fixed\css\jquery.dataTables.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatable-fixed\images\details_close.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatable-fixed\images\details_open.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatable-fixed\images\sort_asc.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatable-fixed\images\sort_asc_disabled.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatable-fixed\images\sort_both.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatable-fixed\images\sort_desc.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatable-fixed\images\sort_desc_disabled.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatable-fixed\js\dataTables.fixedColumns.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatable-fixed\js\jquery.dataTables.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatables.net-dt\css\jquery.dataTables.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatables.net-dt\images\sort_asc.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatables.net-dt\images\sort_asc_disabled.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatables.net-dt\images\sort_both.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatables.net-dt\images\sort_desc.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatables.net-dt\images\sort_desc_disabled.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatables.net-dt\js\dataTables.dataTables.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatables.net-responsive-dt\css\responsive.dataTables.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatables.net-responsive-dt\js\responsive.dataTables.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatables.net-responsive\js\dataTables.responsive.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\datatables.net\js\jquery.dataTables.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\export\datatable\buttons.dataTables.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\export\datatable\buttons.html5.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\export\datatable\buttons.print.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\export\datatable\dataTables.buttons.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\export\tableToExcel.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\flag-icon-css\css\flag-icon.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\flot.curvedlines\curvedLines.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\css\all.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\line-awesome.svg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fullcalendar\fullcalendar.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fullcalendar\fullcalendar.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\gmaps\gmaps.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ion-rangeslider\css\ion.rangeSlider.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ion-rangeslider\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ion-rangeslider\img\sprite-skin-flat.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ion-rangeslider\js\ion.rangeSlider.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ionicons\css\ionicons.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ionicons\ionicons.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery-simple-datetimepicker\jquery.simple-dtpicker.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery-simple-datetimepicker\jquery.simple-dtpicker.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery-sparkline\jquery.sparkline.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery-steps\jquery.steps.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery-ui\ui\widgets\datepicker.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery.flot\jquery.flot.categories.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery.flot\jquery.flot.crosshair.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery.flot\jquery.flot.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery.flot\jquery.flot.pie.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery.flot\jquery.flot.resize.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery.maskedinput\jquery.maskedinput.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jquery\jquery.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jqvmap\jquery.vmap.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jqvmap\jqvmap.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jqvmap\maps\jquery.vmap.canada.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jqvmap\maps\jquery.vmap.usa.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\jqvmap\maps\jquery.vmap.world.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\leaflet\images\layers-2x.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\leaflet\images\layers.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\leaflet\images\marker-icon.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\leaflet\leaflet.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\leaflet\leaflet.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\lightslider\css\lightslider.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\lightslider\img\controls.png" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\lightslider\js\lightslider.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\line-awesome\css\line-awesome.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\moment\min\moment.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\morris.js\morris.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\morris.js\morris.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\parsleyjs\parsley.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\peity\jquery.peity.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\pickerjs\picker.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\pickerjs\picker.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\quill\quill.bubble.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\quill\quill.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\quill\quill.snow.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\raphael\raphael.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\select2\css\select2.min.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\select2\js\select2.full.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\select2\js\select2.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\spectrum-colorpicker\spectrum.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\spectrum-colorpicker\spectrum.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\typicons.font\typicons.css" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\typicons.font\typicons.svg" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\app-calendar.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\app-chat.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\app-contacts.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\app-kanban.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\app-mail.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\app-tickets.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\chart-chartjs.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\chart-flot.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\chart-morris.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\chart-peity.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\chart-sparkline.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\dashboard-eight.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\dashboard-five.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\dashboard-four.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\dashboard-nine.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\dashboard-one.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\dashboard-seven.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\dashboard-six.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\dashboard-ten.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\dashboard-three.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\dashboard-two.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-accordion.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-alerts.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-avatar.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-badge.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-breadcrumbs.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-buttons.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-cards.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-carousel.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-collapse.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-dropdown.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-icons.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-images.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-list-group.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-media-object.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-modals.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-navigation.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-pagination.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-popover.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-progress.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-spinners.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-toast.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\elem-tooltip.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\form-editor.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\form-elements.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\form-layouts.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\form-validation.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\form-wizards.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\index.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\landing-sass.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\map-google.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\map-leaflet.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\map-vector.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\page-404.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\page-faq.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\page-invoice.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\page-news-grid.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\page-order.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\page-pricing.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\page-product-catalogue.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\page-profile.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\page-project-list.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\page-signin.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\page-signup.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\table-basic.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\table-data.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\util-background.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\util-border.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\util-display.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\util-extras.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\util-flex.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\util-height.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\util-margin.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\util-padding.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\util-position.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\util-typography.html" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\template\util-width.html" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\line-awesome.eot" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\line-awesome.ttf" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\fontawesome-free\webfonts\line-awesome.woff2" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ionicons\fonts\fa-brands-400.eot" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ionicons\fonts\fa-solid-900.eot" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ionicons\fonts\fa-solid-900.ttf" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ionicons\fonts\fa-solid-900.woff2" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ionicons\fonts\ionicons.eot" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ionicons\fonts\ionicons.ttf" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ionicons\fonts\ionicons.woff" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\ionicons\fonts\ionicons.woff2" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\typicons.font\typicons.eot" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\typicons.font\typicons.ttf" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\typicons.font\typicons.woff" />
+    <Content Include="bootstrapdash.com\demo\azia\v1.0.0\lib\typicons.font\typiconsd41d.eot" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Main_View.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56679</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44385/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

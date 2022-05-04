@@ -1,0 +1,119 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/MyScript/angular.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light m-1 p-1">
+            <a class="navbar-brand" href="#">Able Jobs</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Jobs </a>
+
+                </div>
+            </div>
+        </nav>
+        <div class="m-2 p-2 d-flex " style="gap:10px;">
+            <div ng-repeat="j in jobs" class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{j.role}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Location - {{j.place}}</h6>
+                    <p class="card-text">{{j.discription}}</p>
+                    <a href="#" class="card-link">{{j.contact}}</a>
+                   
+                </div>
+            </div>
+            <div class="card" ng-click="addJob()" style="width: 18rem;">
+                <div class="card-body d-flex " style="align-items:center;justify-content:center">
+                    <img src="~/Content/icons8-plus-100.png" />
+                </div>
+            </div>
+        </div>
+        <div ng-show="showForm" class="w-50 p-5 m-3">
+            <h3>Add Job</h3>
+            <form ng-submit="submitJob()">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Job Roles*</label>
+                    <select ng-model="job.role" class="form-control" id="exampleFormControlSelect1" required>
+                        <option value="">Please selectjob Role</option>
+                        <option ng-repeat="r in jobroles" value="{{r.role}}">{{r.role}}</option>
+                        <option value="other" >other</option>
+                    </select>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Job Discription*</label>
+                    <textarea ng-model="job.discription" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Place of Work*</label>
+                    <input ng-model="job.work" type="text" class="form-control" id="work" required >
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Phone Number for Coordination*</label>
+                    <input ng-model="job.number" type="number" class="form-control" id="phone" required>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary" style="float:right">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/jquery/jquery.min.js"></script>
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/ionicons/ionicons.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope, myService) {
+            $scope.logout = () => {
+
+            }
+            $scope.test = "test"
+            $scope.addJob = () => {
+                $scope.showForm = true;
+            }
+            $scope.submitJob = () => {
+                var Path = "/Dashboard/saveJob";
+                let payLoad = {...$scope.job}
+                myService.UserLogin(payLoad, Path).then((res) => {
+                    alert("job has Succesfully Created")
+                    $scope.pageLoad();
+                })
+            }
+            $scope.pageLoad = function () {
+                $scope.showForm = false;
+                var Path = "/Dashboard/getInitial";
+                myService.UserLogin({}, Path).then((res) => {
+                    console.log(res)
+                    if (res.data == "Session Expire") {
+                        window.location = "/login/Login";
+                        return;
+                    }
+                    if (res.data.status == "Success") {
+                        $scope.jobs = res.data.jobs;
+                        $scope.jobroles = res.data.jobsRoles;
+                    }
+                })
+            };
+            $scope.pageLoad()
+        });
+    </script>
+    <script src="~/MyScript/MyService.js"></script>
+
+</body>
+</html>

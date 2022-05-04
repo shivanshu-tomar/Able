@@ -1,0 +1,226 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    @*<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90680653-2"></script>*@
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-90680653-2');
+    </script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/Image/logo.ico" />
+    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
+    <meta name="author" content="BootstrapDash">
+
+    <title>ABLE - Jobs Management</title>
+
+    <!-- vendor css -->
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/bootstrapdash.com/demo/azia/v1.0.0/lib/typicons.font/typicons.css" rel="stylesheet">
+
+    <!-- azia CSS -->
+    <link rel="stylesheet" href="~/bootstrapdash.com/demo/azia/v1.0.0/css/azia.css">
+    <script src="~/Scripts/angular.min.js"></script>
+    <style>
+        @@media (max-width: 767px) {
+            .hidden-mobile {
+                display: none;
+            }
+        }
+
+        @@media (min-width: 1024px) {
+            .hidden-desktop {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="az-body" ng-app="MyApp" ng-controller="loginCtrl">
+
+    <div class="az-signup-wrapper">
+        <div class="az-column-signup-left" style="background-image:url(../../bootstrapdash.com/demo/azia/v1.0.0/img/back.jpg)">
+            <div>
+                @*<i class="typcn typcn-chart-bar-outline text-primary"></i>*@
+                <h1 class="az-logo" style="color:white">Able Assignment</h1>
+                <h5 style="color:white">Feel the difference with us</h5>
+                <p style="color:white">Able Web Assignment By Shivanshu Tomar(191500774) GLA University</p>
+                <p style="color:white">Able Jobs Management</p>
+                <a href="https://shivanshu-1811.web.app" target="_blank" class="btn btn-outline-primary">See Resume</a>
+            </div>
+        </div><!-- az-column-signup-left -->
+        <div class="az-column-signup">
+
+            <div class="az-signup-header">
+
+                <div ng-show="type=='login'">
+                    <div class="form-group">
+                        <center> <img src="https://ablejobs.co/static/media/applogo.66a28e54.svg" /></center>
+                    </div>
+                    <div class="form-group">
+                        <h1 class="hidden-mobile">&nbsp; Able Web Assignment</h1>
+                        <h3 class="hidden-desktop"> Able Web Assignment</h3>
+                        <center class="hidden-mobile">Able Jobs Management</center>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" class="form-control" placeholder="Employee Code" ng-model="uid" id="uid" ng-keydown="$event.keyCode === 13 ">
+                        </div><!-- form-group -->
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="Enter Password" ng-model="pass" id="pass" ng-keydown="$event.keyCode === 13">
+                        </div><!-- form-group -->
+
+                        <button class="btn btn-az-primary btn-block" ng-click="ValidateLogin()"><i class="spinner-border" id="load" style="display:none !important;"></i> Login</button>
+                        <button class="btn btn-az-primary btn-block" ng-click="createAccount()"><i class="spinner-border" id="load" style="display:none !important;"></i> Sign Up</button>
+
+                    </form>
+                </div>
+                <div ng-hide="type=='login'">
+
+                    <div class="form-group">
+                        <h1 class="hidden-mobile">&nbsp; Able Web Assignment</h1>
+                        <h3 class="hidden-desktop"> Able Web Assignment</h3>
+                        <center class="hidden-mobile">Able Jobs Management</center>
+                    </div>
+                    <form ng-submit="doSignUp()">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" placeholder="First Name" ng-model="newUser.firstName" id="uid" ng-keydown="$event.keyCode === 13" required>
+                        </div><!-- form-group -->
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" placeholder="Last Name" ng-model="newUser.lastName" id="uid" ng-keydown="$event.keyCode === 13" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" placeholder="Enter Email" ng-model="newUser.email" id="uid">
+                        </div>
+                        <div class="form-group">
+                            <label id="password">Password</label>
+                            <input type="password" class="form-control" placeholder="Enter Password" ng-model="newUser.password" id="pass" ng-keydown="$event.keyCode === 13">
+                        </div><!-- form-group -->
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control" placeholder="Confirm Password" ng-model="newUser.confirmPassword" id="pass" ng-keydown="$event.keyCode === 13">
+                        </div>
+
+                        <button class="btn btn-az-primary btn-block" type="submit"><i class="spinner-border" id="load" style="display:none !important;"></i>Create Account</button>
+
+                    </form>
+                </div>
+
+                <div class="modal fade" id="showId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Congratulation</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                               Your User Id is <b>{{userId}}</b> Plese Note it.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- az-signup-header -->
+            <div class="az-signup-footer">
+
+            </div><!-- az-signin-footer -->
+        </div><!-- az-column-signup -->
+    </div><!-- az-signup-wrapper -->
+
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/jquery/jquery.min.js"></script>
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/bootstrapdash.com/demo/azia/v1.0.0/lib/ionicons/ionicons.js"></script>
+
+    <script src="../js/azia.js"></script>
+    <script>
+      $(function(){
+        'use strict'
+
+      });
+      var app = angular.module("MyApp", []);
+        app.controller("loginCtrl", function ($scope, myService) {
+          $scope.type = "login";
+          $scope.ValidateLogin = function () {
+              
+              if ($("#uid").val().trim().length <= 0) {
+                  alert('Please Mention Employee Id');
+                  $("#uid").focus();
+                  return false;
+              }
+              if ($("#pass").val().trim().length <= 0) {
+                  alert('Please Mention Your Password');
+                  $("#pass").focus();
+                  return false;
+              }
+
+              $("#load").show();
+
+              var User = {
+                  Username: $("#uid").val().trim(),
+                  Password: $("#pass").val().trim(),
+                  LoginType: "Login",
+              };
+              var Path = "/Login/LoginFunction";
+              var getData = myService.UserLogin(User, Path);
+              getData.then(function (d) {
+                  if (d.data.toString().indexOf("Ok:") != -1) {
+                      $("#uid").val('');
+                      $("#pass").val('');
+                      window.location = d.data.toString().replace("Ok:", "");
+                  }
+                  else {
+                      $("#load").hide();
+                      //RefreshCaptcha('L');
+                      alert( d.data); return false;
+                  }
+              });
+            }
+            $scope.createAccount = () => {$scope.type='signup'}
+            $scope.doSignUp = () => {
+                console.log($scope.newUser)
+                if ($scope.newUser.password !== $scope.newUser.confirmPassword) {
+                    alert("Password does not match");
+                    $("#password").focus();
+                    return;
+                }
+                console.log($scope.newUser);
+                var Path = "/Login/SignUp";
+                let payLoad = { firstName: $scope.newUser.firstName, lastName: $scope.newUser.lastName, email: $scope.newUser.email, password: $scope.newUser.password }
+                myService.UserLogin(payLoad, Path).then((res) => {
+                    if (res.data.status == "Success") {
+                        $scope.type = 'login';
+                        $scope.userId = res.data.userId;
+                        $("#showId").modal('show');
+                    }
+                })
+            }
+      })
+    </script>
+    <script src="~/MyScript/MyService.js"></script>
+
+</body>
+
+</html>
